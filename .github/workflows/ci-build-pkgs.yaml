@@ -29,7 +29,7 @@ env:
 
 jobs:
 
-  cpp-tests:
+  build-image:
     name:
     runs-on: ubuntu-latest
     timeout-minutes: 120
@@ -75,4 +75,4 @@ jobs:
           context: pulsar-client-cpp/pkg/deb
           platforms: linux/amd64,linux/arm64
           push: true
-          tags: get-bridge/puldar-build:debian-9
+          tags: ghcr.io/get-bridge/puldar-build:debian-9
