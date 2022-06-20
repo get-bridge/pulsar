@@ -22,7 +22,14 @@ set -e
 
 ROOT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )"/../../.. &> /dev/null && pwd )"
 
-docker pull apachepulsar/pulsar-build:debian-9
+docker run -it --rm \
+  -v "$ROOT_DIR":/pulsar \
+  --platform linux/arm64 \
+  get-bridge/pulsar-build:debian-9 \
+  /pulsar/pulsar-client-cpp/pkg/deb/build-deb.sh
 
-docker run -i -v $ROOT_DIR:/pulsar apachepulsar/pulsar-build:debian-9 \
-        /pulsar/pulsar-client-cpp/pkg/deb/build-deb.sh
+docker run -it --rm \
+  -v "$ROOT_DIR":/pulsar \
+  --platform linux/amd64 \
+  get-bridge/pulsar-build:debian-9 \
+  /pulsar/pulsar-client-cpp/pkg/deb/build-deb.sh

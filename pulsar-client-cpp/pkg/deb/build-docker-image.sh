@@ -18,4 +18,7 @@
 # under the License.
 #
 
-docker build -t apachepulsar/pulsar-build:debian-9 .
+docker buildx build \
+  --platform linux/arm64,linux/amd64 \
+  --tag get-bridge/pulsar-build:debian-9 \
+  ./

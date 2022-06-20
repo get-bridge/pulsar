@@ -39,7 +39,7 @@ pushd $CPP_DIR
 
 chmod +x $(find . -name "*.sh")
 cmake . -DBUILD_TESTS=OFF -DLINK_STATIC=ON
-make pulsarShared pulsarSharedNossl pulsarStatic pulsarStaticWithDeps  -j 3
+make pulsarShared pulsarSharedNossl pulsarStatic pulsarStaticWithDeps -j $(nproc)
 popd
 
 DEST_DIR=apache-pulsar-client
