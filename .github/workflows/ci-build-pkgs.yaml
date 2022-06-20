@@ -32,7 +32,6 @@ jobs:
   build-image:
     name:
     runs-on: ubuntu-latest
-    timeout-minutes: 120
 
     steps:
       - name: checkout
@@ -42,7 +41,7 @@ jobs:
         uses: ./.github/actions/tune-runner-vm
 
       - name: Detect changed files
-        id:   changes
+        id: changes
         uses: apache/pulsar-test-infra/paths-filter@master
         with:
           filters: .github/changes-filter.yaml
