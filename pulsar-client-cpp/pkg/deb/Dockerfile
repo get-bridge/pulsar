@@ -52,7 +52,7 @@ RUN set -exu; \
     rm -rf /protobuf-cpp-3.3.0.tar.gz /protobuf-3.3.0
 
 # ZLib
-RUN set -exu;
+RUN set -exu; \
     curl -O -L https://github.com/madler/zlib/archive/v1.2.11.tar.gz && \
     tar xfz v1.2.11.tar.gz && \
     cd zlib-1.2.11 && \
@@ -61,7 +61,7 @@ RUN set -exu;
     rm -rf /v1.2.11.tar.gz /zlib-1.2.11
 
 # Zstandard
-RUN set -exu;
+RUN set -exu; \
     curl -O -L https://github.com/facebook/zstd/releases/download/v1.3.7/zstd-1.3.7.tar.gz && \
     tar xfz zstd-1.3.7.tar.gz && \
     cd zstd-1.3.7 && \
@@ -70,7 +70,7 @@ RUN set -exu;
     rm -rf /zstd-1.3.7 /zstd-1.3.7.tar.gz
 
 # Snappy
-RUN set -exu;
+RUN set -exu; \
      curl -O -L https://github.com/google/snappy/releases/download/1.1.3/snappy-1.1.3.tar.gz && \
     tar xfz snappy-1.1.3.tar.gz && \
     cd snappy-1.1.3 && \
@@ -78,7 +78,7 @@ RUN set -exu;
     make -j $(nproc) && make install && \
     rm -rf /snappy-1.1.3 /snappy-1.1.3.tar.gz
 
-RUN set -exu;
+RUN set -exu; \
     curl -O -L https://github.com/openssl/openssl/archive/OpenSSL_1_1_0j.tar.gz && \
     tar xfz OpenSSL_1_1_0j.tar.gz && \
     cd openssl-OpenSSL_1_1_0j/ && \
@@ -87,7 +87,7 @@ RUN set -exu;
     rm -rf /OpenSSL_1_1_0j.tar.gz /openssl-OpenSSL_1_1_0j
 
 # LibCurl
-RUN set -exu;
+RUN set -exu; \
     curl -O -L  https://github.com/curl/curl/releases/download/curl-7_61_0/curl-7.61.0.tar.gz && \
     tar xfz curl-7.61.0.tar.gz && \
     cd curl-7.61.0 && \
